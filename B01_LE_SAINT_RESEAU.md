@@ -31,7 +31,7 @@ Nous appliquons un **ET** entre le mask et le l'octet correspondant pour déterm
 =====> 0001 1100
 
 
-Le resultat du **ET** est donc: 0001 1100 = 64 DONC le sous Reseau est 23.34.56.0/23
+Le resultat du **ET** est donc : 0001 1100 = 64 DONC le sous Reseau est 23.34.56.0/23
 
 -----------------------
 
