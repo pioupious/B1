@@ -86,7 +86,41 @@ moment où elles en ont besoin.**
 - Une coupure Internet
 - Un ransomware bloquant les systèmes
 
-| Impacts     | Menaces        | Moyens de protection          |Points clés |                  |Exemples                                   |
-|---------------|--------------|-------------------------------|------------|------------------|-------------------------------------------|
-| - Arrêt ou ralentissement de l’activité / Perte de productivité / Retards de livraison / Insatisfaction clients / Perte de chiffre d’affaires  | Afficher les processus en cours en live 
-  
+| Impacts     | Menaces        | Moyens de protection          |Points clés |                              
+|---------------|--------------|-------------------------------|------------|
+|Arrêt ou ralentissement de l’activité / Perte de productivité / Retards de livraison / Insatisfaction clients / Perte de chiffre d’affaires  | Panne matérielle / Attaque par déni de service (DDoS) / Erreurs humaines | Redondance des systèmes (cluster, backup, RAID, alimentation électrique de secours) / Plan de reprise d’activité (PRA) et Plan de continuité d’activité (PCA) / Surveillance et supervision du SI (monitoring, alertes) | La disponibilité est souvent la priorité numéro 1 pour les métiers / Elle dépend autant du matériel que de l’organisation (sauvegardes, procédures) / Un système très sécurisé mais inutilisable n’a aucun intérêt |
+
+**I = Intégritéer (integrity)**
+--------------------------------
+
+L’intégrité signifie que l’information est **exacte, complète, cohérente** et n’a pas été modifiée de manière non
+autorisée.
+
+**Exemples**
+- Modification involontaire d’une facture
+- Altération d’une base de données
+- Erreur de saisie non détectée
+- Code source modifié sans contrôle
+
+| Impacts     | Menaces        | Moyens de protection          |Points clés |                              
+|---------------|--------------|-------------------------------|------------|
+|Impacts d’un défaut d’intégrité / Décisions erronées / Problèmes comptables / Litiges clients ou fournisseurs / Perte de confiance interne / Risques juridiques | Modifications non autorisées (piratage, virus, ransomware) / Erreurs humaines (saisie incorrecte, suppression accidentelle) / Corruption des fichiers (problèmes matériels ou logiciels) | Contrôle d’accès rigoureux (droits d’administration restreints) / Signature numérique et hachage (MD5, SHA-256 pour vérifier l’intégrité) / Journaux d’audit (logs pour tracer les modifications) | L’intégrité est essentielle pour la fiabilité du SI / Elle concerne autant les erreurs humaines que les attaques / Les mécanismes de validation et de contrôle sont essentiels 
+
+
+**C = Confidentialité (confidentiality)**
+-----------------------------
+La confidentialité signifie que l’information n’est **accessible qu’aux** personnes, systèmes ou entités **autorisés**
+
+**Exemples**
+- Fuite de données clients
+- Accès non autorisé aux salaires
+- Vol de fichiers confidentiels
+- Envoi d’un email à un mauvais destinataire
+
+| Impacts     | Menaces        | Moyens de protection          |Points clés |                              
+|---------------|--------------|-------------------------------|------------|
+|Atteinte à la vie privée / Sanctions réglementaires (RGPD) / Perte de confiance des clients / Atteinte à l’image de l’entreprise/ Avantage concurrentiel perdu | Fuites de données (vol d’informations sensibles) / Attaques par interception (écoute réseau, phishing) / Mauvaise gestion des accès (mot de passe trop simple, partage involontaire d’informations) | Chiffrement des données (AES, RSA, TLS pour sécuriser les communications) / Gestion stricte des accès (authentification forte, 2FA, contrôle des permissions) / Sensibilisation des utilisateurs (formations sur la cybersécurité) | La confidentialité est souvent l’enjeu le plus médiatisé / Elle concerne autant les données numériques que les documents papier
+/ Le contrôle des accès est fondamental |
+
+
+## La quatrième notion
