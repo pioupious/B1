@@ -124,3 +124,85 @@ La confidentialité signifie que l’information n’est **accessible qu’aux**
 
 
 ## La quatrième notion
+
+Afin de renforcer la sécurité de l’information, le triptyque DIC est souvent complété par une quatrième notion
+qui peut varier selon différents points de vue ...
+Cette quatrième notion peut être :
+- **la preuve**
+- **la non-répudiation**
+- **l’authenticité**
+
+----------------------
+
+**La preuve** garantit que toute action effectuée sur un système d’information peut être retracée, authentifiée et
+non-répudiable. Cela permet de savoir qui a fait quoi, quand et comment.
+
+
+**Menaces**
+- Absence de journaux d’événements → impossible d’analyser un incident
+- Modification ou suppression des logs → effacement de traces par un attaquant
+- Usurpation d’identité → quelqu’un agit à la place d’un autre utilisateur
+
+**Moyens de protection**
+- Journaux d’audit (logs) : enregistrement des actions des utilisateurs et administrateurs
+- Horodatage et signatures électroniques : preuve que l’action a bien eu lieu à une date précise
+- Systèmes de détection d’intrusion (SIEM, Wazuh) : surveillance avancée des événements
+- Contrôle des accès et authentification forte : pour éviter les usurpations
+
+-------------------------------
+
+**La non-répudiation** garantit qu’une action effectuée sur un SI ne peut pas être niée par son auteur. Cela est
+particulièrement important pour les transactions électroniques, la signature numérique et la traçabilité des
+opérations.
+
+**Menaces**
+- Un utilisateur nie avoir envoyé un email ou signé un document
+- Un client refuse une commande qu’il a pourtant validée
+- Un fraudeur supprime des logs pour effacer ses traces
+
+
+**Moyens de protection**
+- Signature électronique et certificats numériques : vérification cryptographique
+- Journalisation et horodatage des actions : preuve d’une transaction ou modification
+- Archivage sécurisé des preuves
+
+
+-------------------
+
+**L’authenticité** permet de s’assurer que l’identité d’un utilisateur, d’un système ou d’un message est vérifiable et
+fiable. Cela évite les usurpations d’identité et les falsifications de données.
+
+**Menaces**
+- Phishing et usurpation d’identité : un attaquant se fait passer pour un employé ou un service
+- Modification d’un message en cours de transmission
+- Connexion frauduleuse sur un serveur avec des identifiants volés
+
+**Moyens de protection**
+-Authentification forte (2FA, biométrie, certificats SSL)
+- Protocole d’échange sécurisé (TLS pour les sites web, chiffrement des emails)
+- Validation des signatures électroniques
+
+## Les enjeux de la sécurité du SI
+
+**Enjeux économiques**
+- Perte de chiffre d’affaires
+- Coût de remise en état
+- Pénalités contractuelles
+- Coût des incidents (temps, ressources)
+
+**Enjeux juridiques et réglementaires**
+- RGPD (protection des données personnelles)
+- Responsabilité de l’employeur
+- Obligations contractuelles
+- Risques de sanctions financières
+
+**Enjeux stratégiques**
+- Protection du savoir-faire
+- Continuité d’activité
+- Avantage concurrentiel
+- Capacité d’innovation
+
+**Image et réputation**
+- Confiance des clients
+- Crédibilité de l’entreprise
+- Attractivité employeur
