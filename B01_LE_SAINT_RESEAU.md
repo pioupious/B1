@@ -22,17 +22,16 @@ Sur le même octet que la délimitation du mask on à 56  ==>  23.34.(56).78
 
 56 = 32 + 16 + 8 = 2^5 + 2^4 + 2^3  Soit  0001 1100
 
-Nous appliquons un ET entre le mask et le l'octet correspondant pour déterminer le sous reseaux :
+Nous appliquons un **ET** entre le mask et le l'octet correspondant pour déterminer le sous reseaux :
 
 128 ==> 1111 1110
 
-56  ==> 0001 1100
+56 ==> 0001 1100
 
-RESULT   0001 1100
+=====> 0001 1100
 
---------------
 
-Resulat  : 0001 1100 = 64 DONC le sous Reseau est 23.34.56.0/23
+Le resultat du **ET** est donc: 0001 1100 = 64 DONC le sous Reseau est 23.34.56.0/23
 
 -----------------------
 
