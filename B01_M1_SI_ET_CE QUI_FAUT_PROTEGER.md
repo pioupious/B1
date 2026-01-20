@@ -40,7 +40,7 @@ altérés).
 - Prestations : services de maintenance, infogérance, fournisseurs d’accès internet
 
 **Biens essentiels**
-------------------------------------*
+------------------------------------
 Les biens essentiels sont les informations, services ou ressources stratégiques qui ont une valeur directe pour
 l’organisation. Ils représentent le coeur de l'activité et leur compromission peut impacter lourdement
 l’entreprise (perte financière, perte d’image, arrêt de production, ...).
@@ -54,3 +54,39 @@ compromission a des conséquences directes sur l’activité, parfois même vita
 - Services métiers critiques : site e-commerce, outil de facturation, service de messagerie professionnel
 - Applications métiers stratégiques : ERP, CRM, bases de données clients
 - Documents juridiques et confidentiels
+
+-------------------------------------
+
+**Pourquoi ?**
+
+Cette classification est utilisée dans les démarches d'analyse de risques pour :
+- identifier les priorités de sécurisation
+- définir les plans de continuité et de reprise d'activité
+- affecter les ressources en fonction de la criticité
+
+--------------------------------------
+
+## LE D.I.C
+
+La triade DIC (Disponibilité, Intégrité, Confidentialité) est un modèle de référence permettant de définir les
+objectifs de sécurité applicables aux informations et aux systèmes.
+Disponibilité, Intégrité et Confidentialité sont trois notions fondamentales lorsque l’on évoque la sécurité des
+systèmes d’information car elles définissent les principes fondamentaux de la protection des informations.
+Chaque critère DIC apporte son niveau de sécurité à un actif du SI.
+
+
+**D = Disponibilitée (Avalability)**
+------------------------------------------
+La disponibilité signifie que l’information ou le service est **accessible et utilisable** par les personnes autorisées, **au
+moment où elles en ont besoin.**
+
+**Exemples :**
+- Un logiciel métier indisponible
+- Un serveur en panne
+- Une coupure Internet
+- Un ransomware bloquant les systèmes
+
+| Impacts     | Menaces        | Moyens de protection          |Points clés |                  |Exemples                                   |
+|---------------|--------------|-------------------------------|------------|------------------|-------------------------------------------|
+| - Arrêt ou ralentissement de l’activité / Perte de productivité / Retards de livraison / Insatisfaction clients / Perte de chiffre d’affaires  | Afficher les processus en cours en live 
+  
