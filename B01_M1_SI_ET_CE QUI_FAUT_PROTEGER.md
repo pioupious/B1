@@ -23,4 +23,34 @@
 - une dégradation de l'image
 - une perte de confiance( client, partenaire, salariés )
   
+**Biens supports** 
+--------------------------------
+Les biens supports sont les ressources matérielles, logicielles ou humaines qui permettent le fonctionnement du
+Système d’Information. Ils ne représentent pas directement la valeur stratégique pour l’organisation, mais sont
+indispensables pour que les biens essentiels soient disponibles, accessibles et exploitables.
 
+Un bien support est remplaçable ou réparable. Sa perte ou son indisponibilité entraîne une dégradation du
+service mais ce n'est pas une perte définitive de valeur stratégique (tant que les biens essentiels ne sont pas
+altérés).
+
+**Exemples**
+- Matériels : serveurs, postes de travail, équipements réseau, périphériques
+- Logiciels : systèmes d’exploitation, logiciels de sauvegarde, outils de virtualisation
+- Infrastructures réseau : câblage, routeurs, switchs
+- Prestations : services de maintenance, infogérance, fournisseurs d’accès internet
+
+**Biens essentiels**
+------------------------------------*
+Les biens essentiels sont les informations, services ou ressources stratégiques qui ont une valeur directe pour
+l’organisation. Ils représentent le coeur de l'activité et leur compromission peut impacter lourdement
+l’entreprise (perte financière, perte d’image, arrêt de production, ...).
+
+Ces biens doivent être protégés en priorité : **disponibilité, intégrité et confidentialité** sont essentielles. Leur
+compromission a des conséquences directes sur l’activité, parfois même vitales pour l’organisation.
+
+**Exemples**
+
+- Données sensibles : données clients, données financières, informations stratégiques
+- Services métiers critiques : site e-commerce, outil de facturation, service de messagerie professionnel
+- Applications métiers stratégiques : ERP, CRM, bases de données clients
+- Documents juridiques et confidentiels
