@@ -166,7 +166,7 @@ Est ce que le sous reseau de départ est bon  ?
 
 **On ne peux pas les fusionner en un seul reseau !!**
 
----- **Réflection**
+---- **Reflexion**
 
 96 qui est le premier plus petit des sous réseau est un multiple de 32. Nous ne pouvons peux etre pas faire 1 reseau de 64 mais de reseau de 32 .
 
@@ -183,10 +183,37 @@ Le / sera : 32 = 2^5 ==> /24-5 = /19
 **RESULTAT**
 On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
 
+----------------
+## Subnetting
 
+**Le subnetting c'est diviser le un reseau en plusieur plus petit, cela est possible uniquement si la divison recherché est paire !!**
 
+- Pour ce faire nous prendrons le nombre de sous réseau voulu et le passeront au format 2^n. n que nous ajouterons au / du reseau qu'on veux diviser.
 
+**Exemple :**
 
+192.168.0.0/24 à diviser en 8 ==> 8 = 2^3 nous aurons donc 8 sous réseau en /24+3 ==> /27
+
+- Nous allons ensuite déterminer les sous réseau de chaques divisions. Pour cela nous prendrons l'octet au dessus auquel nous allons soustraire notre
+/26 ==> /32 - /27 = /6 = 2^5 = 32
+
+**FINI  !!!! Nos réseau seront donc :**
+
+192.168.0.0/27
+
+192.168.0.32/27
+
+192.168.0.64/27
+
+192.168.0.96/27
+
+192.168.0.128/27
+
+192.168.0.160/27
+
+192.168.0.192/27
+
+192.168.0.224/27
 
 
 
