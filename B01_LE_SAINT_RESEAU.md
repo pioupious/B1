@@ -92,7 +92,7 @@ X.X.X.32
 
 .......
 
-**Etape 3**
+**Etape 3 :**
 
 **Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du /n - 1  
 
@@ -112,7 +112,16 @@ X.X.X.32
 |               | 	10.5.0.0/16|
 
 
-**Etape 2:** 
+**Etapes 1 :**
+
+List 1 fonctionne car il y a 2 addresse du meme /
+list 2 ne fonctionne pas car il y a 3 addresse meme si elle on le meme /
+
+**Etape 2 :** 
 
 List 1 ne fonctionne pas car le réseau n'est pas contigu ==> /24 - /24 = 0 ==> 2^0 = 1 le sous reseau suivant  192.168.0.0/24 devrais etre 192.168.1.0/24
-List 2 does pass this rule because each subnet is in sequence
+List 2 fonctionne car il est contigu  ==> /16 - /16 = 0 ==> 2^0 = 1 le pas du sous reseau doit etre de 1 ce qui est le cas.
+
+**Etapes 3 :**
+List 1 fonctionne le premier octet non commun est le 3ème 192.168.(0).0 et il est un multiple de  ==> /24 - (/24-1) = /1 ==> 2^1 = 2 
+List 2 fonctionne pas 
