@@ -48,5 +48,54 @@ Le range d'ip sera donc de 23.34.56.1 a 23.34.57.254
 
 ## Le supernetting
 
-**Verifier que sont réseau peut etre fusionner**
 ------------------------------------
+**Type de sous Réseau**
+
+**Classe A  (/8) :** 1.0.0.0 ==> 127.255.255.255
+
+**Classe B (/16) :** 128.0.0.0 ==> 172.31.255.255
+
+**Classe C (/24) :** 192.168.0.0 ==> 192.168.255.255
+
+--------------------------------------
+**Verifier que sont réseau peut etre fusioner**
+
+**Etape 1 :** 
+
+Vérifier que les addresses réseaux à fusionner on le même / **ET** le nombre de réseau a fusioner est un multiple de 2
+
+**Exemple :**
+
+X.X.X.X/16 
+
+X.X.X.X/15
+
+X.X.X.X/16
+
+non fusionnable car il y a 3 réseau dont un en /15 
+
+**Etape 2 :**
+Est ce que les adresses sont **contigu** ?
+
+Pour cela calculer le nombre magique :
+
+/28 ==> /32 - /28 = 4 ==>  2^4 = 16
+
+Un reseau contigu serai un multiple de 16 : 
+X.X.X.0
+
+X.X.X.16 
+
+X.X.X.32
+
+.......
+
+
+
+Contiguous networks: Any network involved in the supernetting process must be contiguous (sequential)
+
+|List 1  |	List 2 |
+|--------|---------
+|192.168.0.0/24	| 10.3.0.0/16 |
+|192.168.3.0/24 |	10.4.0.0/16|
+|            | 	10.5.0.0/16|
