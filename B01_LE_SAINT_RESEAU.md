@@ -60,7 +60,7 @@ Le range d'ip sera donc de 23.34.56.1 a 23.34.57.254
 --------------------------------------
 **Verifier que sont réseau peut etre fusioner**
 
-**Etape 1 :** 
+- **Etape 1 :** 
 
 Vérifier que les addresses réseaux à fusionner on le même / **ET** le nombre de réseau a fusioner est un multiple de 2
 
@@ -74,7 +74,7 @@ X.X.X.X/16
 
 !! non fusionnable car il y a 3 réseau dont un en /15 !!
 
-**Etape 2 :**
+- **Etape 2 :**
 
 Est ce que les adresses sont **contigu** ?
 
@@ -92,12 +92,13 @@ X.X.X.32
 
 .......
 
-**Etape 3 :**
+- **Etape 3 :**
 
 **Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du nombre de réseau **uniquement si se nombre est paire**
 
 16 Réseau a agrégé = 2^4 
 
+--------------------------------------------
 
 **Exemple :**
 
@@ -108,22 +109,23 @@ X.X.X.32
 |               | 	10.5.0.0/16|
 
 
-**Etapes 1 :**
+- **Etapes 1 :**
 
 List 1 fonctionne car il y a 2 addresse du meme /
 list 2 ne fonctionne pas car il y a 3 addresse meme si elle on le meme / et quelle qoit dans la meme catégorie  (a,b,c)
 
-**Etape 2 :** 
+- **Etape 2 :** 
 
 List 1 ne fonctionne pas car le réseau n'est pas contigu ==> /24 - /24 = 0 ==> 2^0 = 1 le sous reseau suivant  192.168.0.0/24 devrais etre 192.168.1.0/24
 List 2 fonctionne car il est contigu  ==> /16 - /16 = 0 ==> 2^0 = 1 le pas du sous reseau doit etre de 1 ce qui est le cas.
 
-**Etapes 3 :**
+- **Etapes 3 :**
+ 
 List 1 fonctionne le premier octet non commun est le 3ème 192.168.(0).0 et il est un multiple de 2 le nombre de reseau  
 List 2 fonctionne pas car le nombre sous reseau n'est pas paire et le premier octet non commun est le 2 ème 10.(3).0.0 n'est pas un multiple de 2 si un voulais agréger seulement les deux premier réseaux. 
 
 --------------
-**Supernetting**
+**SUPERNETTING**
 
 Une fois qu'on a verifier que les réseau étaient fusionable on peux commencer a les agrégeg ou supernetter.
 
