@@ -94,9 +94,8 @@ X.X.X.32
 
 - **Etape 3 :**
 
-**Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du nombre de réseau **uniquement si se nombre est paire**
+**Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du nombre de réseau à fusionner **uniquement si ce nombre est paire**
 
-16 Réseau a agrégé = 2^4 
 
 --------------------------------------------
 
