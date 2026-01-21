@@ -72,16 +72,18 @@ X.X.X.X/15
 
 X.X.X.X/16
 
-non fusionnable car il y a 3 réseau dont un en /15 
+!! non fusionnable car il y a 3 réseau dont un en /15 !!
 
 **Etape 2 :**
+
 Est ce que les adresses sont **contigu** ?
 
 Pour cela calculer le nombre magique :
 
-/28 ==> /32 - /28 = 4 ==>  2^4 = 16
+/28 ==> /32 - /28 = 4 ==> 2^4 = 16
 
 Un reseau contigu serai un multiple de 16 : 
+
 X.X.X.0
 
 X.X.X.16 
@@ -90,9 +92,18 @@ X.X.X.32
 
 .......
 
+**Etape 3**
+
+**Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du /n - 1  
+
+==> /16 ==> /16 - (/16 -1) = /1 ==> 2^1 = 2 
+
+==> /14 ==> /16 - (/14-1) = /3 ==> 2^3 = 8
+
+==> /22 ==> /24 - (/22-1) = /3 ==> 2^3 =8  
 
 
-Contiguous networks: Any network involved in the supernetting process must be contiguous (sequential)
+**Exemple**
 
 |List 1  |	List 2 |
 |--------|---------
