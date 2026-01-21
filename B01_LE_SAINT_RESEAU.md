@@ -220,6 +220,10 @@ On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
 
 192.168.0.224/27
 
+------
 
+**Correction**
+
+Nous ne pouvons pas les fusionner, il a tout les check au vert sauf le sous reseau de départ. On a 4 sous réseau à fusionner le premier est 212.56.146.0/24 et 146 est pas divisible par 4 malheuresement  ...
 
 
