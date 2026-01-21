@@ -12,7 +12,9 @@ Prenons un base avec 23.34.56.78/23
  
  ou plus simplement
  
- /24 - /23  = 24 - 23 = 1 ==> 2^1 = 2   256-2= 254   (256 est le nombre de possibilité donc 255 + 1 pour la possibilité du 0)
+ /24 - /23  = 24 - 23 = 1 ==> 2^1 = 2  
+ 
+ 256-2= 254   (256 est le nombre de possibilité donc 255 + 1 pour la possibilité du 0)
 
 -----------------------
 
@@ -39,9 +41,11 @@ Le resultat du **ET** est donc : 0001 1100 = 64 DONC le sous Reseau est 23.34.56
 
 Pour caluculer la broadcast nous allons inversé le masque de sous reseau et l'additionner à notre addresse de sous reseau 
 
-255.255.254.0 ==>  0.0.1.255 Donc  23.34.56.0 + 0.0.1.255
+255.255.254.0 ==>  0.0.1.255 
 
-L'addresse de Broadcast sera donc 23.34.57.255
+Donc la Broadcats est : 23.34.56.0 + 0.0.1.255
+
+Pour un resusltat de 23.34.57.255
 
 Le range d'ip sera donc de 23.34.56.1 a 23.34.57.254
 
@@ -72,7 +76,7 @@ X.X.X.X/15
 
 X.X.X.X/16
 
-!! non fusionnable car il y a 3 réseau dont un en /15 !!
+**!! non fusionnable car il y a 3 réseau dont un en /15 !!**
 
 - **Etape 2 :**
 
@@ -80,9 +84,9 @@ Est ce que les adresses sont **contigu** ?
 
 Pour cela calculer le nombre magique :
 
-/28 ==> /32 - /28 = 4 ==> 2^4 = 16
+Pour un /28 ==> /32 - /28 = /4 = 2^4 = 16
 
-Un reseau contigu serai un multiple de 16 : 
+Un reseau contigu sera un multiple de 16 : 
 
 X.X.X.0
 
@@ -126,7 +130,7 @@ List 2 fonctionne pas car le nombre sous reseau n'est pas paire et le premier oc
 --------------
 **SUPERNETTING**
 
-Une fois qu'on a verifier que les réseau étaient fusionable on peux commencer a les agrégeg ou supernetter.
+Une fois qu'on à verifier que les réseau étaient fusionable on peux commencer a les agrégeg ou supernetter.
 
 **Pour l'exemple :***
 - 212.56.146.0/24
@@ -155,11 +159,13 @@ Sont-ils de la meme taille ? tous des /24 donc **OUI**
 
 Sont il contigu ? 
 
-/24 - /24 = 0 ==> 2^0 = 1 donc ils doivent avoir un espacement de 1 sur le 3 octet et c'est le cas **donc** contigu
+/24 - /24 = /0 = 2^0 = 1 donc ils doivent avoir un espacement de 1 sur le 3 octet et c'est le cas **donc** contigu
 
 - **Etape 3 :** 
 
 Est ce que le sous reseau de départ est bon  ? 
+
+Nous avons **64 sous reseau** à fusionner et **le plus petit est 96**
 
 96/64 **Rhhhha !! Pas possible ;( !!!**
 
@@ -167,7 +173,7 @@ Est ce que le sous reseau de départ est bon  ?
 
 ---- **Reflexion**
 
-96 qui est le premier plus petit des sous réseau est un multiple de 32. Nous ne pouvons peux etre pas faire 1 reseau de 64 mais de reseau de 32 .
+**96** qui est le premier plus petit des sous réseau est un multiple de **32**. Nous ne pouvons peux etre pas faire 1 reseau de 64 mais 2 reseau de 32
 
 - **Partons de ce postulat :**
 
@@ -177,7 +183,7 @@ ET
 
 202.1.128.0 ==> 202.1.159.0
 
-Le / sera : 32 = 2^5 ==> /24-5 = /19
+Le / sera : nombre de reseau 32 = 2^5 ==> /24-5 = /19
 
 **RESULTAT**
 On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
