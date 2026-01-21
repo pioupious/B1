@@ -115,7 +115,7 @@ X.X.X.32
 **Etapes 1 :**
 
 List 1 fonctionne car il y a 2 addresse du meme /
-list 2 ne fonctionne pas car il y a 3 addresse meme si elle on le meme /
+list 2 ne fonctionne pas car il y a 3 addresse meme si elle on le meme / et quelle qoit dans la meme catégorie  (a,b,c)
 
 **Etape 2 :** 
 
@@ -124,4 +124,9 @@ List 2 fonctionne car il est contigu  ==> /16 - /16 = 0 ==> 2^0 = 1 le pas du so
 
 **Etapes 3 :**
 List 1 fonctionne le premier octet non commun est le 3ème 192.168.(0).0 et il est un multiple de  ==> /24 - (/24-1) = /1 ==> 2^1 = 2 
-List 2 fonctionne pas 
+List 2 fonctionne pas le premier octet non commun est le 2 ème 10.(3).0.0 et il n'est pas un multiple de ==> /16 - (/16-1) = /1 ==> 2^1 = 2 
+
+--------------
+**Supernetting**
+
+
