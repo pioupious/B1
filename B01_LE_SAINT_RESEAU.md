@@ -103,10 +103,16 @@ X.X.X.32
 ==> /22 ==> /24 - (/22-1) = /3 ==> 2^3 =8  
 
 
-**Exemple**
+**Exemple :**
 
 |List 1  |	List 2 |
 |--------|---------
 |192.168.0.0/24	| 10.3.0.0/16 |
 |192.168.3.0/24 |	10.4.0.0/16|
-|            | 	10.5.0.0/16|
+|               | 	10.5.0.0/16|
+
+
+**Etape 2:** 
+
+List 1 ne fonctionne pas car le réseau n'est pas contigu ==> /24 - /24 = 0 ==> 2^0 = 1 le sous reseau suivant  192.168.0.0/24 devrais etre 192.168.1.0/24
+List 2 does pass this rule because each subnet is in sequence
