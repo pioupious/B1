@@ -51,11 +51,11 @@ Le range d'ip sera donc de 23.34.56.1 a 23.34.57.254
 ------------------------------------
 **Type de sous Réseau**
 
-**Classe A  (/8) :** 1.0.0.0 ==> 127.255.255.255
+**Classe A  :** 0.0.0.0 ==> 127.255.255.255
 
-**Classe B (/16) :** 128.0.0.0 ==> 172.31.255.255
+**Classe B  :** 128.0.0.0 ==> 191.255.255.255
 
-**Classe C (/24) :** 192.168.0.0 ==> 192.168.255.255
+**Classe C  :** 192.0.0.0 ==> 223.255.255.255
 
 --------------------------------------
 **Verifier que sont réseau peut etre fusioner**
@@ -94,13 +94,9 @@ X.X.X.32
 
 **Etape 3 :**
 
-**Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du /n - 1  
+**Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du nombre de réseau **uniquement si se nombre est paire**
 
-==> /16 ==> /16 - (/16 -1) = /1 ==> 2^1 = 2 
-
-==> /14 ==> /16 - (/14-1) = /3 ==> 2^3 = 8
-
-==> /22 ==> /24 - (/22-1) = /3 ==> 2^3 =8  
+16 Réseau a agrégé = 2^4 
 
 
 **Exemple :**
@@ -123,10 +119,73 @@ List 1 ne fonctionne pas car le réseau n'est pas contigu ==> /24 - /24 = 0 ==> 
 List 2 fonctionne car il est contigu  ==> /16 - /16 = 0 ==> 2^0 = 1 le pas du sous reseau doit etre de 1 ce qui est le cas.
 
 **Etapes 3 :**
-List 1 fonctionne le premier octet non commun est le 3ème 192.168.(0).0 et il est un multiple de  ==> /24 - (/24-1) = /1 ==> 2^1 = 2 
-List 2 fonctionne pas le premier octet non commun est le 2 ème 10.(3).0.0 et il n'est pas un multiple de ==> /16 - (/16-1) = /1 ==> 2^1 = 2 
+List 1 fonctionne le premier octet non commun est le 3ème 192.168.(0).0 et il est un multiple de 2 le nombre de reseau  
+List 2 fonctionne pas car le nombre sous reseau n'est pas paire et le premier octet non commun est le 2 ème 10.(3).0.0 n'est pas un multiple de 2 si un voulais agréger seulement les deux premier réseaux. 
 
 --------------
 **Supernetting**
+
+Une fois qu'on a verifier que les réseau étaient fusionable on peux commencer a les agrégeg ou supernetter.
+
+**Pour l'exemple :***
+- 212.56.146.0/24
+- 212.56.147.0/24
+- 212.56.148.0/24
+- 212.56.149.0/24
+
+Pour cela on prend le nombre de sous reseau soit 4 ==> 2^2 
+
+On prend la puissance pour la soustraire au /24 du sous reseau nous aurrons donc un reseau en /22
+
+***!!!! MAIS PEUT-ON VRAIMENT AGREGER SE RESEAU, REPONSE EN FIN SI VOUS VOULEZ ESSAYER !!!!**
+
+------ 
+**MISE EN PRATIQUE**
+
+Agreger les prefix de 202.1.96.0/24 ==> 202.1.159.0/24 soit 64 reseau 
+
+- **Etape 1 :**
+
+Le nombre de raiseau est-il paire ? **oui**  
+
+Sont-ils de la meme taille ? tous des /24 donc **OUI**
+
+- **Etape 2 :**
+
+Sont il contigu ? 
+
+/24 - /24 = 0 ==> 2^0 = 1 donc ils doivent avoir un espacement de 1 sur le 3 octet et c'est le cas **donc** contigu
+
+- **Etape 3 :** 
+
+Est ce que le sous reseau de départ est bon  ? 
+
+96/64 **Rhhhha !! Pas possible ;( !!!**
+
+**On ne peux pas les fusionner en un seul reseau !!**
+
+---- **Réflection**
+
+96 qui est le premier plus petit des sous réseau est un multiple de 32. Nous ne pouvons peux etre pas faire 1 reseau de 64 mais de reseau de 32 .
+
+- **Partons de ce postulat :**
+
+202.1.96.0 ==> 202.1.127.0
+
+ET
+
+202.1.128.0 ==> 202.1.159.0
+
+Le / sera : 32 = 2^5 ==> /24-5 = /19
+
+**RESULTAT**
+On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
+
+
+
+
+
+
+
 
 
