@@ -226,4 +226,126 @@ On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
 
 Nous ne pouvons pas les fusionner, il a tout les check au vert sauf le sous reseau de départ. On a 4 sous réseau à fusionner le premier est 212.56.146.0/24 et 146 est pas divisible par 4 malheuresement  ...
 
+#Cisco Paquet Tracer
+
+## Le switch 
+
+Avant de commencer à configurer le switch mettre en place les ip et gateway sur les ordinateur.
+
+Puis set vlan sur un switch :
+``` 
+switch> en (activer le switch)
+switch # conf t (rentrer dans le mode configuration)
+
+switch(config)# hostname nom (attribuer un nom au swith)
+
+switch(config)# vlan 10 (choisire un vlan)
+switch(config-vlan)# name VLAN10 (renomer la vlan pour la créer)
+switch(config-vlan)# exit
+
+switch(config)# vlan 20 (choisire un vlan)
+switch(config-vlan)# name VLAN20 (renomer la vlan pour la créer)
+switch(config-vlan)# exit
+
+switch(config)# vlan 99
+switch(config-vlan)# name SVI
+switch(config-vlan)# exit
+
+switch(config)# vlan 100 
+switch(config-vlan)# name VLANDEFAULT
+switch(config-vlan)# exit
+
+switch(config)# int fa0/1 (configurer le port fast ethernet 0/1)
+switch(config-if)# switchport mode access (passer le port selection en mode access)
+switch(config-if)# switchport access vlan 10 (indiquer a ce port qu'il appartient a la vlan10)
+switch(config-if)# exit 
+
+switch(config)# int fa0/2 (configurer le port fast ethernet 0/2)
+switch(config-if)# switchport mode access (passer le port selection en mode access)
+switch(config-if)# switchport access vlan 20 (indiquer a ce port qu'il appartient a la vlan20)
+switch(config-if)# exit 
+
+switch(config)# int range fa0/3-fa0/24 (configurer le port fast ethernet 0/1)
+switch(config-if)# switchport mode access (passer le port selection en mode access)
+switch(config-if)# switchport access vlan 100 (indiquer a ce port qu'il appartient a la vlan99 qui est la vlan par default)
+switch(config-if)# exit 
+
+switch(config)# interface vlan 99 
+switch(config-vlan)# description Management_SVI
+switch(config-vlan)# ip address 192.168.99.2 255.255.255.0 (donner une ip dans pour ce connecter en ssh)
+switch(config-vlan)# no shutdown (indiquer que la vlan doit etre allumée)
+switch(config-vlan)# exit
+switch(config)# ip default-gateway 192.168.99.1 ( configure la gateway)
+
+
+switch(config)# int gi0/1 (prendre le port de sortie et le configurer)
+switch(config-if)# description TRUNK_Vers_SW2 
+switch(config-if)# switchport mode trunk (le passer en mode truck = mode filtrage)
+switch(config-if)# switchport trunk allowed vlan 10,20 ( indiquer les port que vous autorizer a laisser passer)
+switch(config-if)# exit
+switch(config)# exit
+switch# exit
+```
+
+-----------------------------
+
+Pour les Switch de niveau 3 ou switch qui font du rooting 
+
+``` 
+switch> en (activer le switch)
+switch # conf t (rentrer dans le mode configuration)
+
+switch(config)# hostname nom (attribuer un nom au swith)
+
+switch(config)# ip routing (activer le niveau 3 du routing)
+
+
+switch(config)# interface vlan 10 (indiquer la vlan a parametrer pour l'inter vlan)
+switch(config-vlan)# description GW_USERS
+switch(config-vlan)# ip address 192.168.10.1 255.255.255.0 (lui donner la meme address que la gateway du vlan)
+switch(config-vlan)# no shutdown (l'allumer)
+switch(config-vlan)# exit
+
+switch(config)# interface vlan 20(indiquer la vlan a parametrer pour l'inter vlan)
+switch(config-vlan)# description GW_USERS
+switch(config-vlan)# ip address 192.168.20.1 255.255.255.0 (lui donner la meme address que la gateway du vlan)
+switch(config-vlan)# no shutdown (l'allumer)
+switch(config-vlan)# exit
+```
+
+Interdire a des message dans un certain sens : 
+
+```
+switch(config)# access-list 10 deny 192.168.1.10 0.0.0.255 (créer une règle 10 qui n'autorise pas le .1 a passer)
+switch(config)# access-list 20 deny 192.168.1.10 0.0.0.255 19.168.2.10  (créer une règle 20 qui n'autorise pas le .2 a passer a envoyer un message au .1)
+access-list 10 permit any ( autorise tout les passage des autre que mentionner dans le deny)
+no access-list 10 (suprime l'acces list 10) 
+
+```
+---------------------------------
+
+Au niveau d'un routeur
+
+```
+switch# conf t
+switch(config)# interface g0/0.10 (diviser le port connecter avec le switch )
+switch(config-if)# encapsulation dot1Q 10 (permettre une encapsulation et donner le meme nb que la vlan visée)
+switch(config-if)# ip address 192.168.10.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
+switch(config-if)# exit
+switch(config)# interface g0/0.20 (diviser le port connecter avec le switch )
+switch(config-if)# encapsulation dot1Q 20(permettre une encapsulation et donner le meme nb que la vlan visée)
+switch(config-if)# ip address 192.168.20.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
+switch(config-if))# exit
+```
+
+--------------------------
+
+Connection entre deux routeur
+
+```
+router(config)# interface gigabitEthernet0/0 (designation de l’interface à configurer)
+router(config-if)# ip address 10.0.0.1 255.255.255.0 (affectation de l’@IP/mask sur l’interface)
+router(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2 (config d’une route statique, si tu veux contacter le reseau 192.1268.(2).0 envoye le paquet a 10.0.0.2 )
+router(config)# ip route 0.0.0.0 0.0.0.0 192.168.1.254 (config d’une route par défaut (Internet))
+```
 
