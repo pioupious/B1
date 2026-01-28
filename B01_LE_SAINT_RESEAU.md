@@ -327,15 +327,15 @@ no access-list 10 (suprime l'acces list 10)
 Au niveau d'un routeur
 
 ```
-switch# conf t
-switch(config)# interface g0/0.10 (diviser le port connecter avec le switch )
-switch(config-if)# encapsulation dot1Q 10 (permettre une encapsulation et donner le meme nb que la vlan visée)
-switch(config-if)# ip address 192.168.10.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
-switch(config-if)# exit
-switch(config)# interface g0/0.20 (diviser le port connecter avec le switch )
-switch(config-if)# encapsulation dot1Q 20(permettre une encapsulation et donner le meme nb que la vlan visée)
-switch(config-if)# ip address 192.168.20.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
-switch(config-if))# exit
+router# conf t
+router(config)# interface g0/0.10 (diviser le port connecter avec le switch )
+router(config-if)# encapsulation dot1Q 10 (permettre une encapsulation et donner le meme nb que la vlan visée)
+router(config-if)# ip address 192.168.10.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
+router(config-if)# exit
+router(config)# interface g0/0.20 (diviser le port connecter avec le switch )
+router(config-if)# encapsulation dot1Q 20(permettre une encapsulation et donner le meme nb que la vlan visée)
+router(config-if)# ip address 192.168.20.1 255.255.255.0 (indiquer se port comme la gateway de la vlan 10)
+router(config-if))# exit
 ```
 
 --------------------------
