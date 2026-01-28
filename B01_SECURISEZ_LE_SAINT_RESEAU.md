@@ -122,3 +122,14 @@ Switch(config-if)# ip dhcp snooping trust
 Switch(config)# interface range FastEthernet0/1 – 23
 Switch(config-if)# ip dhcp snooping limit rate 15
 ```
+
+## Le DAI
+
+**Principe du DAI :** Vérification des paquets ARP qui circulent sur le switch
+**But :** Empêcher qu’un hôte envoie des réponses ARP mensongères du type
+
+!! **Comment le switch décide si un ARP est “vrai” ?** !!
+DAI compare les infos ARP avec une base de confiance :
+- DHCP Snooping Binding Table (le plus courant)
+- DHCP Snooping doit être activé avant DAI (sinon DAI ne sait pas quoi vérifier)
+
