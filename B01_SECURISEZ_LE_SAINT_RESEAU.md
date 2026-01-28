@@ -122,6 +122,13 @@ Switch(config-if)# ip dhcp snooping trust
 Switch(config)# interface range FastEthernet0/1 – 23
 Switch(config-if)# ip dhcp snooping limit rate 15
 ```
+**!!!! EVITER LES BOUCLES !!!!**
+
+```
+switch(config-if)# spanning-tree portfast
+switch(config-if)# spanning-tree bpduguard enable
+switch(config-if)#
+```
 
 ## Le DAI
 
