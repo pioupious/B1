@@ -183,9 +183,4 @@ network 192.168.10.0 255.255.255.0
 default-router 192.168.10.1 # Le plus important pour indique la vlan
 dns-server 8.8.8.8
 exit
-ip dhcp pool VLAN20_VOICE
-network 192.168.20.0 255.255.255.0
-default-router 192.168.20.1
-option 150 ip 192.168.20.10
-exit
 ```
