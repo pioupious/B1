@@ -100,6 +100,10 @@ X.X.X.32
 
 **Verifier** que dans le sous réseau le plus bas, le premier octet non commun est un divisible du nombre de réseau à fusionner **uniquement si ce nombre est paire**
 
+- **Etape du baroud d'honneur (Etape 4) :**
+
+!!!**Verifier** après avoir fusionner que le sous reseau est bien divisible par le nouveau nombre magique !!!
+*Exemple : On vien de fusionner 2 /29 (nombre d'or du /29 = /29-/32 = /3 = 2^3 = 8)  en un /28 dont le nombre d'or lui est de 16. On doit donc verifier que le nouveaux sous réseau est bien un divisible de 16.
 
 --------------------------------------------
 
@@ -185,8 +189,18 @@ ET
 
 Le / sera : nombre de reseau 32 = 2^5 ==> /24-5 = /19
 
-**RESULTAT**
+
 On peux avoir 2 reseau  : 202.1.96.0/19 et 202.1.128.0/19
+
+**Etape 4 Overlord (Etape 4 ) : **
+Les nouveaux sous réseaux sont-ils divisible par le nouveau nombre d'or généré en /19 ? **Teston ça !!**
+nombre d'or = /24 - /19 = /6 = 2^6 = 64
+
+**RESULTAT**
+
+Or 96 n'est pas divise par 64 c'est donc **une impasse ;(**
+(La seul possibilité serait un /16)
+
 
 ----------------
 ## Subnetting
