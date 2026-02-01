@@ -140,3 +140,52 @@ DAI compare les infos ARP avec une base de confiance :
 - DHCP Snooping Binding Table (le plus courant)
 - DHCP Snooping doit être activé avant DAI (sinon DAI ne sait pas quoi vérifier)
 
+**Trusted :** ports où on accepte les ARP sans contrôle strict
+uplink vers routeur, serveur, switch distribution
+**Untrusted :** ports utilisateurs (PC)
+DAI inspecte et bloque si incoherent
+!!!!!**Par défaut : tous les ports sont untrust**!!!!!
+
+```
+switch#conf t
+switch(config)# ip arp inspection vlan 10,20
+switch(config)# interface gi0/1 
+switch(config-if)# ip arp inspection trust
+switch(config)# interface fa0/1 
+switch(config-if)# ip arp inspection limit rate 15
+switch(config)# end
+```
+
+## Autre Aspect important 
+
+Regrouper tiout les ports non utiliser dans un vlan Poubelle ne surtout pas les laisser dans leur vlan native.
+
+**Exemple :**
+```
+switch# conf t
+switch(config)# vlan 999
+switch(config-vlan)# name PARKING_UNUSED
+switch(config-vlan)# exit
+switch(config)# interface range fa0/10 - 24
+switch(config-if)# switchport mode access
+switch(config-if)# switchport access vlan 999
+switch(config-if)# shutdown
+switch(config-if)# end
+```
+
+Configurer routeur ou switch en DHCP :
+
+```
+ip dhcp excluded-address 192.168.10.1 192.168.10.20 # On exclude 2 address
+ip dhcp excluded-address 192.168.20.1 192.168.20.20 # On exclude 2 address
+ip dhcp pool VLAN10_USERS 
+network 192.168.10.0 255.255.255.0 
+default-router 192.168.10.1 # Le plus important pour indique la vlan
+dns-server 8.8.8.8
+exit
+ip dhcp pool VLAN20_VOICE
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.1
+option 150 ip 192.168.20.10
+exit
+```
