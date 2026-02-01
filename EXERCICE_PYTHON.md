@@ -182,3 +182,51 @@ while ( trouve == False):
         n = int (input ("entrer un nombre : "))
 print ("Bravo le nombre était " , valeur )
 ```
+
+# Part 3
+
+```
+#exercie 18
+
+def carre(n):
+    return n*n
+
+n=int(input("entrer un nb : "))
+print ("votre nombre au carré est : ",carre(n))
+
+#exercice 19
+h=float(input("Hauteur du rectangle : "))
+l=float(input("Largeur du rectangle : "))
+
+def air(h,l):
+    return h*l
+
+print ("L'air est de ", air(h,l))
+
+-----------------------
+
+#exercice 20
+
+def pair(n):
+    if n % 2 ==0:
+        return "paire"
+    else:
+        return "impaire"
+n=int(input("Entrer un nombre : "))
+print ("votre nombre est", pair(n))
+
+
+-------------------
+
+#exercice 21
+
+def menu():
+    return print (f"""  #MENU#
+1-Démarrer
+
+2-Arrêter
+
+3-Quitter""")
+
+menu()
+```
