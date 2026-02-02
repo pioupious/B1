@@ -117,7 +117,7 @@ pace potentiellement utilisé inutilement si mal géré.
 
 Il existe trois grandes familles de sauvegarde :
 
--**La sauvegarde complète :** on effectue une seule sauvegarde, qui comprend tous les fi-
+- **La sauvegarde complète :** on effectue une seule sauvegarde, qui comprend tous les fi-
 chiers et dossiers ;Cette méthode est la plus fiable mais elle est longue et très coûteuse
 en termes d'espace disque, ce qui empêche de l'utiliser en pratique pour toutes les sau-
 vegardes à effectuer
