@@ -115,3 +115,46 @@ pace potentiellement utilisé inutilement si mal géré.
 ##  Typologie des Sauvegardes
 
 
+Il existe trois grandes familles de sauvegarde :
+
+-**La sauvegarde complète :** on effectue une seule sauvegarde, qui comprend tous les fi-
+chiers et dossiers ;Cette méthode est la plus fiable mais elle est longue et très coûteuse
+en termes d'espace disque, ce qui empêche de l'utiliser en pratique pour toutes les sau-
+vegardes à effectuer
+
+
+- **La sauvegarde différentielle :** consiste à ne sauvegarder que les fichiers modifiés ou
+ajoutés, sur la base de la dernière sauvegarde complète effectuée. La différentielle nécessite plus d'espace de stockage,
+mais demande un temps derestauration plus court.
+
+exemple : 
+-lundi : all
+-mardi : ma
+-mercredi : ma + me
+-jeudi : ma + me + je
+-vendredi : ma + me + je + ve
+-samedi : ma + me + je + ve + sa
+-lundi : all ( all + sa)
+
+**Si on souhaite récupérer l'ensemble de la sauvegarde de
+la semaine**, il faudra restaurer simplement le lundi et le samedi qui correspondent à l'ensemble de la semaine. La res-
+tauration prendra donc moins de temps, mais cette méthode consomme plus d'espace que l’incrémentielle, avec ici, un
+total de 2950 Mo.
+
+- **La sauvegarde incrémentielle :** . L'incrémentielle nécessite moins d'espace de stockage, mais de-
+mande un temps de restauration plus long. Consiste à sauvegarder les fichiers créés ou modifiés depuis la dernière sauvegarde quel que soit son type.
+
+
+exemple : 
+-lundi : all
+-mardi : ma
+-mercredi : me
+-jeudi : je
+-vendredi : ve
+-samedi : sa
+-lundi : all ( all + ma + me + je + ve + sa)
+
+
+  Pour récupérer l'ensemble de la sauvegarde de la semaine, il
+faudra restaurer tous les éléments du lundi au samedi ce qui prendra un certain temps, mais cela reste la méthode qui
+consomme le moins d'espace
