@@ -60,4 +60,58 @@ Et pour plus de sécurité la sauvegarde 3-2-1-1-0
 - Externaliser 1 des support hors du site
 - 0 avoir aucune erreur lors des test de restauration
 
+## Les paramètres pour la sauvegarde
+
+ - **Rétention des sauvegardes préconnisée :** Désigne la durée pendant laquelle une copie de sauvegarde est conservée avant d’être supprimée ou écrasée.
+La stratégie de sauvegarde doit notamment définir les durées de rétention des sauvegardes. Cette stratégie
+précise la répartition à long terme : 15 jours de sauvegardes journalières, 1 an de sauvegardes mensuelles,
+5 ans de sauvegardes annuelles par exemple.
+
+- **PDMA :** la perte de données maximale admissible se quantifie en heure. Il faut définir la perte de données maximale admissible en cas
+d’incident (PDMA=RPO Recorvery point objective) c’est la durée maximale acceptable entre la dernière sau-
+vegarde et l’incident survenu quantifiant donc la perte de données acceptée.
+
+- **DIMA :** Le délai d’interruption maximal admissible (ou DMIA) d’une ressource comprends, le temps de la
+prise de décision du passage en mode secours après l’incident, le délai de la relance de la ressource et de la
+restauration de ses données. DIMA = RTO ( recovery time objective)
+
+
+## Type de sauvegarde
+
+- Sauvegarde synchrone : Chaque modification de données sur le sys-
+tème principal est immédiatement répliquée sur le système de sauvegarde en temps réel, et l’opération
+n’est considérée comme terminée qu’une fois la sauvegarde confirmée.
+
+
+**Avantages :** Aucune perte de données (zéro perte ou très proche) ;Très haute disponibilité.
+
+**Inconvénients :** Ralentit les performances car il faut attendre la validation de la sauvegarde ;Consomme
+beaucoup de bande passante ; nécessite une infrastructure très fiable (faible latence).
+
+
+- **Sauvegarde asynchrone :** Enregistrer d’abord les données localement,
+puis à les transférer vers le système de sauvegarde après un délai (quelques secondes, minutes ou plus), sans
+bloquer l’activité principale.
+
+**Avantages :** Moins d’impact sur les performances du système source ; Plus souple au niveau réseau (moins
+de bande passante instantanée requise).
+
+**Inconvénients :** Risque de perte de données entre deux synchronisations (période de latence); Moins adap-
+tée aux systèmes critiques en temps réel.
+
+
+- **WORM – Write Once Read Many :**WORM (Write Once Read Many) est une technologie de stockage qui per-
+met d’écrire des données une seule fois et de les lire autant de fois que nécessaire, sans possibilité de modi-
+fication ou suppression.L'objectif est de garantir l’intégrité et la pérennité des données, notamment à des
+fins de conformité réglementaire (ex : finance, santé, justice…).
+
+
+**Avantages :** Empêche toute falsification ou suppression accidentelle ou malveillante ;Conforme aux exigences
+de conservation légale (ex : audit, archivage réglementaire).
+
+**Inconvénients :** Pas de mise à jour possible : si des données changent, il faut créer une nouvelle version. Es-
+pace potentiellement utilisé inutilement si mal géré.
+
+##  Typologie des Sauvegardes
+
 
