@@ -5,8 +5,8 @@
 dans un système informatique.
 
 Ce terme est proche de deux notions :
-- l'enregistrement des données, qui est l'opération d'écriture des données sur un support d'enregistrement durable, tel qu'un disque magnétique ou SSD, disque optique, une clé USB, des bandes magnétiques, etc. à des fins de sécurité ou d’hébergement de la donnée vivante on parle alors de stockage.
-- l'archivage, qui consiste à enregistrer des données sur un support à des fins légales ouhistoriques.
+- L'enregistrement des données, qui est l'opération d'écriture des données sur un support d'enregistrement durable, tel qu'un disque magnétique ou SSD, disque optique, une clé USB, des bandes magnétiques, etc. à des fins de sécurité ou d’hébergement de la donnée vivante on parle alors de stockage.
+- L'archivage, qui consiste à enregistrer des données sur un support à des fins légales ouhistoriques.
 
 -----------------------
 
@@ -138,8 +138,7 @@ exemple :
 
 **Si on souhaite récupérer l'ensemble de la sauvegarde de
 la semaine**, il faudra restaurer simplement le lundi et le samedi qui correspondent à l'ensemble de la semaine. La res-
-tauration prendra donc moins de temps, mais cette méthode consomme plus d'espace que l’incrémentielle, avec ici, un
-total de 2950 Mo.
+tauration prendra donc moins de temps, mais cette méthode consomme plus d'espace que l’incrémentielle
 
 - **La sauvegarde incrémentielle :** . L'incrémentielle nécessite moins d'espace de stockage, mais de-
 mande un temps de restauration plus long. Consiste à sauvegarder les fichiers créés ou modifiés depuis la dernière sauvegarde quel que soit son type.
@@ -158,3 +157,32 @@ exemple :
   Pour récupérer l'ensemble de la sauvegarde de la semaine, il
 faudra restaurer tous les éléments du lundi au samedi ce qui prendra un certain temps, mais cela reste la méthode qui
 consomme le moins d'espace
+
+----------------------
+
+Le choix d'une technique de sauvegarde se fera en prenant en compte :
+- la capacité de stockage du support ;
+- la capacité de sauvegarder en syncrone ou asynchrone;
+- la capacité de chiffrer les sauvegardes;
+- la capacité de sauvegarder en WORM ;
+- le type d'écriture des données;
+- la vitesse de sauvegarde ;
+- la fiabilité du support (notamment après une longue période de stockage) ;
+- la simplicité de classement ;
+- la facilité à restaurer les données ;
+- le coût de l'ensemble.
+
+Intervient également la possibilité de sélectionner les données à sauvegarder. Enfin pour les grands systèmes de sau-
+vegarde, il faut tenir compte de critères physiques : volume physique des supports de stockage, poids, sensibilité à la
+température, à l'humidité, à la poussière, à la lumière.
+
+## ️Sauvegarde du client ou du serveur ?
+Les données sur poste client sont réputées moins importantes que les données gérées sur des sys-
+tèmes centraux.
+
+De fait, la sauvegarde des données des postes individuels (clients) reste marginale dans la stratégie
+d'utilisation des ordinateurs. Elle est utilisée principalement par les particuliers.
+
+De plus, la virtualisation des stations de travail va sans doute rendre obsolète les outils classique-
+ment utilisés pour sauvegarder les données des utilisateurs.
+
