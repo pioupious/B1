@@ -100,7 +100,7 @@ de bande passante instantanée requise).
 tée aux systèmes critiques en temps réel.
 
 
-- **WORM – Write Once Read Many :**WORM (Write Once Read Many) est une technologie de stockage qui per-
+- **WORM – Write Once Read Many :** WORM (Write Once Read Many) est une technologie de stockage qui per-
 met d’écrire des données une seule fois et de les lire autant de fois que nécessaire, sans possibilité de modi-
 fication ou suppression.L'objectif est de garantir l’intégrité et la pérennité des données, notamment à des
 fins de conformité réglementaire (ex : finance, santé, justice…).
