@@ -50,6 +50,7 @@ Exécution
 
 Une donnée décrit quelque chose. Une commande demande de faire quelque chose. **Le problème de sécurité apparaît quand une donnée est interprétée comme une commande.**
 
+---------------------
 
 **Nom de fichier vs commande système**
 
@@ -57,10 +58,14 @@ Si un programme attend un nom de fichier mais le transmet directement à un méc
 commandes alors une donnée peut devenir une instruction cachée. **Ce qui devait désigner une chose devient une action exécutée par le système**
 Exemple : nom de fichier qui est du code
 
+-------------------
+
 **Paramètre attendu vs instruction**
 
 Si un paramètre est interprété dynamiquement ou injecté dans un contexte d’exécution, il peut changer la
 logique du programme. **Un paramètre doit influencer des données, pas piloter le comportement du moteur d’exécution**
+
+----------------------
 
 **Exécution de commandes externes**
 
@@ -75,6 +80,8 @@ Pourquoi c’est sensible :
 - Une entrée mal contrôlée peut devenir une commande complète
 **Le programme ouvre une porte directe vers le système.**
 
+-----------------------------------------
+
 **Évaluation dynamique**
 
 **Le programme :**
@@ -87,6 +94,8 @@ Pourquoi c’est sensible
 - Toute entrée devient potentiellement exécutable
 - Le moteur fait confiance à ce qu’il interprète
  **Ce qui est évalué n’est plus une donnée mais une logique active**
+
+-----------------------------
 
 **Chargement dynamique de code**
 
@@ -101,8 +110,10 @@ Pourquoi c’est sensible
 - Le programme exécute quelque chose qu’il ne connaît pas à l’avance
 **Le programme accepte d’exécuter du code venu d’ailleurs**
 
+--------------------------------------
 
 **Templates interprétés**
+
 **Un template est censé :**
 - afficher des données
 - produire du texte (HTML, mail, document, …)
@@ -116,6 +127,7 @@ Mais certains templates :
 Une donnée injectée dans un template peut être interprétée comme une expression et devenir exécutable
 **L’affichage devient un moteur d’exécution déguisé**
 
+-----------------------------------------
 
 **Pourquoi la RCE est critique**
 
