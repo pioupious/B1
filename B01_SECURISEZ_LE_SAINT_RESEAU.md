@@ -181,6 +181,7 @@ ip dhcp excluded-address 192.168.20.1 192.168.20.20 # On exclude 2 address
 ip dhcp pool VLAN10_USERS 
 network 192.168.10.0 255.255.255.0 
 default-router 192.168.10.1 # Le plus important pour indique la vlan
+(router(config-vlan)#iphelper-address 10.0.0.10 #faire un relay vers 10.0.0.10)
 dns-server 8.8.8.8
 exit
 ```
