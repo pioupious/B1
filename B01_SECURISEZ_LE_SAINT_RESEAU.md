@@ -197,15 +197,15 @@ router(dhcp-config)#domain-name entreprise.local (optionnel)
 router(config)#lease 7 # bail de 7 jours
 ```
 
-## Acces list (ACL)
+## Acces list router (ACL)
 
 **ACL Standard**
 
 ```
-access-list standard [numéro]
+ip access-list standard [numéro]
 access-list# [numéro] {permit | deny} [source] [wildcard]
 
-access-list standard 1
+ip access-list standard 1
 access-list# 10 permit tcp 192.168.1.0 0.0.0.255 eq 80
 access-list# 20 deny any 'or' access-list 1 permit any
 ```
@@ -213,10 +213,10 @@ access-list# 20 deny any 'or' access-list 1 permit any
 **ACL Étendue**
 
 ```
-access-list range [numéro]
+access-list extended [numéro]
 {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
 
-access-list range 2
+ip access-list range 2
 access-list# 10 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
 access-list# 20 deny any 'or' access-list 100 permit any
 ```
