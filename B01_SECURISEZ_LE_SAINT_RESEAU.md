@@ -201,12 +201,13 @@ router(config)#lease 7 # bail de 7 jours
 
 **ACL Standard**
 
+**uniquement si on veut bloquer tout trafic**
 ```
 ip access-list standard [numéro]
 access-list# [numéro] {permit | deny} [source] [wildcard]
 
 ip access-list standard 1
-access-list# 10 permit tcp 192.168.1.0 0.0.0.255 eq 80
+access-list# 10 permit 192.168.1.0 0.0.0.255 
 access-list# 20 deny any 'or' access-list 1 permit any
 ```
 
@@ -216,9 +217,9 @@ access-list# 20 deny any 'or' access-list 1 permit any
 access-list extended [numéro]
 {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
 
-ip access-list range 2
+ip access-list extended 2
 access-list# 10 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
-access-list# 20 deny any 'or' access-list 100 permit any
+access-list# 20 deny any any 'or' access-list 100 permit any any
 ```
 
 **Appliquer l'ACL à une Interface**
