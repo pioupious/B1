@@ -202,17 +202,21 @@ router(config)#lease 7 # bail de 7 jours
 **ACL Standard**
 
 ```
-access-list [numéro] {permit | deny} [source] [wildcard]
-access-list 1 permit 192.168.1.0 0.0.0.255
-access-list 1 deny any 'or' access-list 1 permit any
+access-list standard [numéro]
+access-list# [numéro] {permit | deny} [source] [wildcard]
+
+access-list standard 1
+access-list# 10 permit tcp 192.168.1.0 0.0.0.255 eq 80
+access-list# 20 deny any 'or' access-list 1 permit any
 ```
 
 **ACL Étendue**
 
 ```
-access-list [numéro] {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
-access-list 100 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
-access-list 100 deny any 'or' access-list 100 permit any
+access-list range [numéro]
+ {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
+access-list# 10 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
+access-list# 20 deny any 'or' access-list 100 permit any
 ```
 
 **Appliquer l'ACL à une Interface**
@@ -229,7 +233,7 @@ ip access-group 100 in
 **in vs out**
 **in :**
 - Indique que l'ACL est appliquée au trafic entrant sur l'interface.
-- Cela signifie que tous les paquets qui entrent dans l'interface seront filtrés par l'ACL.
+- Cela signifie que tous les paquets qui entrent dans l'interface seront filtrés par l'ACL.ex
 - Utilisé pour contrôler qui peut accéder à des services ou des ressources sur le réseau interne.
 **out :**
 - Indique que l'ACL est appliquée au trafic sortant de l'interface.
