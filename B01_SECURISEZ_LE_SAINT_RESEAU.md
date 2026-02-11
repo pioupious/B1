@@ -185,3 +185,14 @@ default-router 192.168.10.1 # Le plus important pour indique la vlan
 dns-server 8.8.8.8
 exit
 ```
+
+Pool DHCP :
+
+```
+router(config)# ipdhcppool LAN10
+router(dhcp-config)#network 192.168.10.0 255.255.255.0
+router(dhcp-config)#default-router 192.168.10.254
+router(dhcp-config)#dns-server 1.1.1.1 8.8.8.8
+router(dhcp-config)#domain-name entreprise.local (optionnel)
+router(config)#lease 7 # bail de 7 jours
+```
