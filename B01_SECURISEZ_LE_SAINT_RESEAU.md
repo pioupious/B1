@@ -214,7 +214,9 @@ access-list# 20 deny any 'or' access-list 1 permit any
 
 ```
 access-list range [numéro]
- {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
+{permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
+
+access-list range 2
 access-list# 10 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
 access-list# 20 deny any 'or' access-list 100 permit any
 ```
