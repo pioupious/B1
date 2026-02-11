@@ -204,6 +204,7 @@ router(config)#lease 7 # bail de 7 jours
 ```
 access-list [numéro] {permit | deny} [source] [wildcard]
 access-list 1 permit 192.168.1.0 0.0.0.255
+access-list 1 deny any 'or' access-list 1 permit any
 ```
 
 **ACL Étendue**
@@ -211,6 +212,7 @@ access-list 1 permit 192.168.1.0 0.0.0.255
 ```
 access-list [numéro] {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
 access-list 100 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
+access-list 100 deny any 'or' access-list 100 permit any
 ```
 
 **Appliquer l'ACL à une Interface**
