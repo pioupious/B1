@@ -31,15 +31,17 @@ juste bloquer les nouvelles MAC (protect),bloquer et logguer (restrict) ou mettr
 
 On va **utiliser le port-security** pour contrôler les adresses MAC sur les ports et utiliser l’option **sticky** pour apprendre dynamiquement @MAC et les rendre persistantes.
 
-```
+(```
 switch(config)# interface FastEthernet0/2
 switch(config-vlan)# switchport port-security
 switch(config-vlan)# switchport port-security maximum 1 "1 seule (*) @MAC autorisée!"
 switch(config-vlan)# switchport port-security violation shutdown
 ```
-*Resume: On transforme le port fa0/2 en port secure et on autorise un max d'address max a 1. Si le nombre d'address mac est dif le port se shutdown*
+*Resume: On transforme le port fa0/2 en port secure et on autorise un max d'address max a 1. Si le nombre d'address mac est dif le port se shutdown*)
 
 -----------------------------------------
+
+**IMPORTANT**
 
 Option **sticky** permet apprendre dynamiquement les @MAC et les rendre persistantes !!! c'est beaucoups plus simple !!!
 
