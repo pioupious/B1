@@ -196,3 +196,40 @@ router(dhcp-config)#dns-server 1.1.1.1 8.8.8.8
 router(dhcp-config)#domain-name entreprise.local (optionnel)
 router(config)#lease 7 # bail de 7 jours
 ```
+
+## Acces list (ACL)
+
+**ACL Standard**
+
+```
+access-list [numéro] {permit | deny} [source] [wildcard]
+access-list 1 permit 192.168.1.0 0.0.0.255
+```
+
+**ACL Étendue**
+
+```
+access-list [numéro] {permit | deny} [protocole] [source] [wildcard] [destination] [wildcard] [eq numéro_port]
+access-list 100 permit tcp 192.168.1.0 0.0.0.255 10.0.0.0 0.255.255.255 eq 80
+```
+
+**Appliquer l'ACL à une Interface**
+
+```
+interface [interface]
+ip access-group [numéro] {in | out}
+
+interface GigabitEthernet0/0
+ip access-group 100 in
+
+```
+
+**in vs out**
+**in :**
+- Indique que l'ACL est appliquée au trafic entrant sur l'interface.
+- Cela signifie que tous les paquets qui entrent dans l'interface seront filtrés par l'ACL.
+- Utilisé pour contrôler qui peut accéder à des services ou des ressources sur le réseau interne.
+**out :**
+- Indique que l'ACL est appliquée au trafic sortant de l'interface.
+- Cela concerne tous les paquets qui quittent l'interface et vont vers un réseau externe.
+- Utilisé pour contrôler quel trafic est autorisé à sortir de votre réseau vers l'extérieur.
